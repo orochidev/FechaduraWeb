@@ -1,0 +1,89 @@
+
+jQuery(document).ready(function() {
+	
+    /*
+        Fullscreen background
+    */
+    
+    /*
+        Login form validation
+    */
+    $('.login-form input[type="text"], .login-form input[type="password"], .login-form textarea').on('focus', function() {
+    	$(this).removeClass('input-error');
+    });
+    
+    $('.login-form').on('submit', function(e) {
+    	
+    	$(this).find('input[type="text"], input[type="password"], textarea').each(function(){
+    		if( $(this).val() == "" ) {
+    			e.preventDefault();
+    			$(this).addClass('input-error');
+    		}
+    		else {
+    			$(this).removeClass('input-error');
+    		}
+    	});
+    	
+    });
+    
+    /*
+        Registration form validation
+    */
+
+    $('.registration-form input[type="text"], .registration-form textarea').on('focus', function() {
+    	$(this).removeClass('input-error');
+    });
+    
+    $('.registration-form').on('submit', function(e) {
+    	$(this).find('input[type="text"], textarea').each(function(){
+    		if( $(this).val() == "" ) {
+    			e.preventDefault();
+    			$(this).addClass('input-error');
+    		}
+    		else {
+    			$(this).removeClass('input-error');
+    		}
+    	});
+    	
+    });
+
+    /* Empregador Fisico form */
+	$("#btn-empregador-fisico").click(function(){
+		$("#option-empregador").addClass("hidden");
+		$("#form-to-show").removeClass("hidden");
+		$("#form-empregador-juridico").remove();
+		$("#form-empregador-fisico").removeClass("hidden");
+		$("#form-envio").attr("action", "methods/cadastrar-empregador-fisico.php");
+
+	});
+	$("#btn-empregador-juridico").click(function(){
+		$("#option-empregador").addClass("hidden");
+		$("#form-to-show").removeClass("hidden");
+		$("#form-empregador-fisico").remove();
+
+		$("#form-empregador-juridico").removeClass("hidden");
+		$("#form-envio").attr("action", "methods/cadastrar-empregador-juridico.php");
+
+	});	
+	$(".datas").mask("99/99/9999");
+    $(".telefones-fixos").mask("(99)9999-9999");
+    $(".telefones-celular").mask("(99)9999-9999?9");
+
+    $(".cep").mask("99999-999");
+    $(".RG").mask("99.999.999-*");
+    $(".CPF").mask("999.999.999-99");
+	
+	    	$('input').each(function(){ //change event or something you want
+ 
+/* simple js */
+if (this.createTextRange) {
+ var r = this.createTextRange();
+ r.collapse(true);
+ r.select();
+}
+ 
+ $(this).focus(); //set focus
+ 
+});
+
+});
