@@ -1,0 +1,10 @@
+-> 	Criar verificação de aceitação dos ensaios.
+-> Refatorar views
+-> Inserir % ligante projeto
+	-> Usuário informar faixa de ligante
+	
+-> Informar intervalo do teor asfaltico
+
+
+-> Indicar onde não foi aceito (qualquer item inclusive peneira);
+-> 12:30 - quinta
