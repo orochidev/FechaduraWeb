@@ -1,0 +1,3 @@
+class RA < Credencial
+
+end

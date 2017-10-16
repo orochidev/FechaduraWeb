@@ -1,0 +1,2 @@
+class Credencial < ApplicationRecord
+end

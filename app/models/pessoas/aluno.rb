@@ -1,0 +1,3 @@
+class Aluno < Pessoa
+
+end
