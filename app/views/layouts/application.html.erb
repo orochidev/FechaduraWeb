@@ -1,14 +1,58 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FechaduraWeb</title>
-    <%= csrf_meta_tags %>
+    <title>Gerenciador de salas - UTFPR</title>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag  params[:controller] , media: 'all', 'data-turbolinks-track': 'reload' %>
+
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.12/fc-3.2.2/fh-3.1.2/r-2.1.0/datatables.min.css"/>
+
   </head>
 
-  <body>
-    <%= yield %>
+
+  <body class='hold-transition skin-blue sidebar-mini'>
+<div class='wrapper'>
+  		<%= render 'layouts/header' %>
+  		<%= render 'layouts/sidebar' %>
+
+	  <div class="content-wrapper">
+      <section class="content-header">
+        <h1><%= yield :titulo %></h1>
+      </section>
+      <section class="content">
+        <%= render 'callbacks' %>
+		    <%= yield %>
+      </section>
+		</div>
+
+     <footer class="main-footer">
+    <!-- To the right -->
+    <div class="pull-right hidden-xs">
+      Desenvolvido por URUTU.
+    </div>
+    <!-- Default to the left -->
+    <strong>&copy; :) Gerenciador de Salas UTFPR</a>.</strong>.
+  </footer>
+
+
+  <!-- /.control-sidebar -->
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+  </div>
+
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+	<%= javascript_include_tag params[:controller] %>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.12/fc-3.2.2/fh-3.1.2/r-2.1.0/datatables.min.js"></script>
+
   </body>
 </html>

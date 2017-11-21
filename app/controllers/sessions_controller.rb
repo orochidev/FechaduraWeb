@@ -2,16 +2,16 @@ class SessionsController < ApplicationController
   layout "login"
   before_action :block_access, except: [:destroy]
 
-  def new
-  end
+
 
   def create
-            @user = User.find_by(email: params[:session][:email].downcase)
-            if @user && @user.authenticate(params[:session][:password])
-                        sign_in(@user)
-            redirect_to @user
+    @credencial = LoginSenha.find_by(login: params[:email].downcase)
+    if @credencial && @credencial.authenticate(params[:password])
+      sign_in(@credencial.pessoa)
+      redirect_to salas_path
     else
-            render 'new'
+        flash.now[:error] = ["Email/senha incorretos! Verifique as informações e tente novamente."]
+        render 'new'
     end
   end
 

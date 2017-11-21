@@ -1,13 +1,11 @@
 module SessionsHelper
-  def sign_in
-    session[:user_id] = @user.id
+  def sign_in(user)
+    session[:user_id] = user.id
   end
-  def current_user
-    @current_user ||= Pessoa.find_by(id: session[:user_id])
-   end
+
    def block_access
      if current_user.present?
-                redirect_to users_path
+          redirect_to salas_path
      end
    end
    def logged_in?
@@ -17,4 +15,11 @@ module SessionsHelper
      session.delete(:user_id)
      @current_user = nil
    end
+
+
+   def current_user
+     @current_user ||= Pessoa.find_by(id: session[:user_id])
+  end
+
+
 end

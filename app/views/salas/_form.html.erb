@@ -1,6 +1,21 @@
-<%= form_for :sala do |f|%>
-  <%= f.label "Digite o código da sala" %>
-  <%= f.text_field :codigo, placeholder: "Batata" %>
+<%= form_for sala do |f| %>
+  <div class="form-group has-feedback">
+    <%= f.label :codigo, "Nome/identificador da sala" %>
 
-  <%= f.submit %>
+    <%= f.text_field :codigo,
+        class: "form-control",
+        placeholder:"Exemplo: E005, Hackerspace, E007...",
+        required: true %>
+  </div>
+  <div class="form-group has-feedback">
+    <%= f.label :descricao, "Descrição da sala" %>
+
+    <%= f.text_area :descricao,
+        class: "form-control",
+        placeholder:"Exemplo: Esta sala é o laboratório de iniciação científica..." %>
+  </div>
+
+<div class="box-footer">
+  <%= f.submit (@sala.persisted? ? "Confirmar edição" : "Confirmar cadastro"), class: "btn btn-primary" %>
+</div>
 <% end %>

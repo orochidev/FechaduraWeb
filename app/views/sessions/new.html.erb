@@ -4,11 +4,9 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
+    <%= render 'callbacks' %>
     <p class="login-box-msg">Entre com as informações abaixo para acessar o painel</p>
-    <%= render 'form' %>
-
-
-
+    <%= render 'form', sala: @sala %>
   </div>
   <!-- /.login-box-body -->
 </div>

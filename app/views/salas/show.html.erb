@@ -1,4 +1,52 @@
-<p id="notice"><%= notice %></p>
+<% content_for :titulo do %>
+  Visualizar informações da sala  <%= @sala.to_s %>
+<% end %>
 
-<%= link_to 'Edit', edit_sala_path(@sala) %> |
-<%= link_to 'Back', salas_path %>
+<div class="row">
+  <div class="col-md-3">
+    <div class="box box-primary">
+      <div class="box-body box-profile">
+        <h3 class="profile-username text-center">Sala <%= @sala.to_s %></h3>
+        <p class="text-muted text-center">
+          <%= @sala.descricao %>
+        </p>
+
+        <ul class="list-group list-group-unbordered">
+          <li class="list-group-item">
+            <%= link_to "Editar", edit_sala_path(@sala), class: "btn btn-primary" %>
+          </li>
+        </ul>
+
+      </div>
+      <!-- /.box-body -->
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#entradas" data-toggle="tab">Entradas</a></li>
+              <li><a href="#saidas" data-toggle="tab">Saídas</a></li>
+              <li><a href="#dentro-da-sala" data-toggle="tab">Pessoas dentro da sala</a></li>
+
+            </ul>
+            <div class="tab-content">
+              <div class="active tab-pane clearfix" id="entradas">
+                Nenhuma entrada registrada.
+              </div>
+              <div class="tab-pane clearfix" id="saidas">
+                Nenhuma saída registrada.
+              </div>
+              <div class="tab-pane clearfix" id="dentro-da-sala">
+                Nenhuma pessoa dentro do <%= @sala.to_s %>
+              </div>
+            </div>
+          </div>
+
+  </div>
+
+</div>
+<div class="row">
+  <div class="col-md-12">
+
+  </div>
+</div>

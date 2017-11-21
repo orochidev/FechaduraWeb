@@ -10,11 +10,56 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171016133214) do
+ActiveRecord::Schema.define(version: 20171116191816) do
+
+  create_table "agendamentos", force: :cascade do |t|
+    t.time "horario_inicio"
+    t.time "horario_fim"
+    t.integer "dia"
+    t.string "tipo_permitido"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "calouros", force: :cascade do |t|
+    t.string "nome"
+    t.integer "idade"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "credenciais", force: :cascade do |t|
     t.string "type"
     t.string "codigo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "login"
+    t.string "password_digest"
+    t.integer "pessoa_id"
+  end
+
+  create_table "eventos", force: :cascade do |t|
+    t.integer "pessoa_id"
+    t.integer "sala_id"
+    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "horario_itens", force: :cascade do |t|
+    t.time "horario_inicio"
+    t.time "horario_fim"
+    t.integer "dia"
+    t.integer "horario_id"
+    t.boolean "valido"
+    t.boolean "ativo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "horarios", force: :cascade do |t|
+    t.string "tipo_permitido"
+    t.integer "sala_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -34,6 +79,7 @@ ActiveRecord::Schema.define(version: 20171016133214) do
     t.string "codigo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "descricao"
   end
 
 end

@@ -1,5 +1,6 @@
-class SalassController < ApplicationController
+class SalasController < ApplicationController
   before_action :set_sala, only: [:show, :edit, :update, :destroy]
+  before_action :authorize
 
   # GET /salas
   # GET /salas.json
@@ -19,6 +20,7 @@ class SalassController < ApplicationController
 
   # GET /salas/1/edit
   def edit
+
   end
 
   # POST /salas
@@ -27,9 +29,10 @@ class SalassController < ApplicationController
     @sala = Sala.new(sala_params)
     respond_to do |format|
       if @sala.save
-        format.html { redirect_to @sala, notice: 'Sala was successfully created.' }
+        format.html { redirect_to salas_path, success: "A sala #{@sala.to_s} foi criada com sucesso!" }
         format.json { render :show, status: :created, location: @sala }
       else
+        flash.now[:error] = @sala.errors
         format.html { render :new }
         format.json { render json: @sala.errors, status: :unprocessable_entity }
       end
@@ -41,10 +44,13 @@ class SalassController < ApplicationController
   def update
     respond_to do |format|
       if @sala.update(sala_params)
-        format.html { redirect_to @sala, notice: 'Sala was successfully updated.' }
+        format.html { redirect_to salas_path, success: "Sala #{@sala.to_s} atualizada com sucesso!." }
         format.json { render :show, status: :ok, location: @sala }
       else
-        format.html { render :edit }
+        format.html {
+           flash.now[:error] = @sala.errors
+           render :edit
+         }
         format.json { render json: @sala.errors, status: :unprocessable_entity }
       end
     end
@@ -64,6 +70,7 @@ class SalassController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_sala
       @sala = Sala.find(params[:id])
+      @horarios = @sala.horarios
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -26,7 +26,6 @@
  */
 
 
-
 .table-linkable tr[data-href]:hover {
 	cursor: pointer;
 }

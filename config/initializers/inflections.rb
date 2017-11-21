@@ -74,4 +74,7 @@ ActiveSupport::Inflector.inflections do |inflect|
 
   # Irregulares
   inflect.irregular "país", "países"
+  inflect.irregular "RFID", "RFIDS"
+  inflect.irregular "rfid", "rfids"
+
 end

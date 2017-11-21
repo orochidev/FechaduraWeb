@@ -1,17 +1,24 @@
-<%= form_for :session, url: sign_in_path do |f| %>
+<%= form_tag :action => 'create' do %>
   <div class="form-group has-feedback">
-    <%= f.email_field :email, autofocus: true, placeholder:"Insira seu email", class:"form-control" %>
+    <%= email_field_tag :email, params[:email],
+    autofocus: true,
+    placeholder:"Insira seu email",
+    class:"form-control",
+    required: true %>
     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
   </div>
   <div class="form-group has-feedback">
-    <%= f.password_field :password, placeholder:"Insira sua senha", class:"form-control" %>
+    <%= password_field_tag :password, "",
+    placeholder:"Insira sua senha",
+    class:"form-control",
+    required:true %>
     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
   </div>
   <div class="row">
 
     <!-- /.col -->
     <div class="col-xs-12">
-      <%= f.submit "Acessar", class:"btn btn-primary btn-block btn-flat" %>
+      <%= submit_tag "Acessar", class:"btn btn-primary btn-block btn-flat" %>
     </div>
     <!-- /.col -->
   </div>
