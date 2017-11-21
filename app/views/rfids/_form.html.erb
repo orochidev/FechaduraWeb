@@ -1,0 +1,14 @@
+<%= form_for [@pessoa, rfid] do |f| %>
+  <div class="form-group has-feedback">
+    <%= f.label :codigo, "Insira o código do RFID" %>
+
+    <%= f.text_field :codigo,
+        class: "form-control",
+        placeholder:"Exemplo: XXXXXXXXXXXXXXXXXXXXXX",
+        required: true %>
+  </div>
+
+<div class="box-footer">
+  <%= f.submit (@rfid.persisted? ? "Editar" : "Cadastrar"), class: "btn btn-primary" %>
+</div>
+<% end %>

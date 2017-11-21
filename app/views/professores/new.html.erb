@@ -1,0 +1,13 @@
+<% content_for :titulo do %>
+Cadastrar novo professor
+<% end %>
+
+<div class="box box-primary">
+  <div class="box-header with-border">
+    <h3 class="box-title">Cadastrar novo professor</h3>
+  </div>
+    <div class="box-body">
+      <%= render 'form', professor: @professor %>
+</div>
+
+</div>

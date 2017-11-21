@@ -1,0 +1,26 @@
+<% if error %>
+<div class="summary-errors alert alert-danger alert-dismissible">
+	<button type="button" class="close" aria-label="Close" data-dismiss="alert">
+		<span aria-hidden="true">×</span>
+	</button>
+		<h4><i class="icon fa fa-ban"></i> Erro!</h4>
+	<p>    <ul>
+      <% error.each do |field, msg|  %>
+      	<% msg ||= field %>
+        <li><%= msg.to_s %></li>
+      <% end %>
+
+
+      </ul></p>
+</div>
+<% end %>
+
+<% if success %>
+<div class="summary-errors alert alert-success alert-dismissible">
+	<button type="button" class="close" aria-label="Close" data-dismiss="alert">
+		<span aria-hidden="true">×</span>
+	</button>
+	<h4><i class="icon fa fa-check"></i> Sucesso!</h4>
+	<p><ul><li><%= success %></li></ul></p>
+</div>
+<% end %>

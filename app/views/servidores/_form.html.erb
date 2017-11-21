@@ -1,0 +1,17 @@
+<%= form_with(model: servidor, local: true) do |form| %>
+  <% if servidor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(servidor.errors.count, "error") %> prohibited this servidor from being saved:</h2>
+
+      <ul>
+      <% servidor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

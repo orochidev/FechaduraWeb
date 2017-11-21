@@ -1,0 +1,160 @@
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+      <!-- Sidebar user panel (optional) -->
+
+      <div class="user-panel">
+
+        <%= link_to current_user, :class => "pull-left image" do %>
+        <%= image_tag "avatar", :class => "img-circle" %>
+        <% end %>
+
+
+        <%= link_to current_user, :class => "pull-left info" do %>
+
+        <p><%= current_user.to_s %></p>
+
+        <!-- Status -->
+        <p></p>
+        <% end %>
+
+      </div>
+
+      <!-- Sidebar Menu -->
+      <ul class="sidebar-menu">
+        <li class="header">Painel principal</li>
+        <!-- Optionally, you can add icons to the links -->
+
+        <li class='treeview'>
+        <a href="#">
+          <i class="fa fa-users"></i> <span>Gerenciar salas</span>
+          </a>
+                <ul class="treeview-menu">
+         <li class="active">
+          <%= link_to new_sala_path do %>
+          <i class="fa fa-plus"></i>Cadastrar sala
+          <% end %>
+
+
+        </li>
+        <li class="active">
+         <%= link_to salas_path do %>
+         <i class="fa fa-plus"></i>Listar todas as salas
+         <% end %>
+
+
+       </li>
+
+          </ul>
+
+        </li>
+        <li class='treeview'>
+        <a href="#">
+          <i class="fa fa-users"></i> <span>Gerenciar alunos</span>
+          </a>
+                <ul class="treeview-menu">
+         <li class="active">
+          <%= link_to new_aluno_path do %>
+          <i class="fa fa-plus"></i>Cadastrar aluno
+          <% end %>
+
+
+        </li>
+        <li class="active">
+         <%= link_to alunos_path do %>
+         <i class="fa fa-plus"></i>Listar todos os alunos
+         <% end %>
+
+
+        </li>
+
+          </ul>
+
+        </li>
+
+        <li class='treeview'>
+        <a href="#">
+          <i class="fa fa-users"></i> <span>Gerenciar professores</span>
+          </a>
+                <ul class="treeview-menu">
+         <li class="active">
+          <%= link_to new_professor_path do %>
+          <i class="fa fa-plus"></i>Cadastrar professor
+          <% end %>
+
+
+        </li>
+        <li class="active">
+         <%= link_to professores_path do %>
+         <i class="fa fa-plus"></i>Listar todos os professores
+         <% end %>
+
+
+        </li>
+
+          </ul>
+
+        </li>
+        <li class='treeview'>
+        <a href="#">
+          <i class="fa fa-users"></i> <span>Gerenciar servidores</span>
+          </a>
+                <ul class="treeview-menu">
+         <li class="active">
+          <%= link_to new_servidor_path do %>
+          <i class="fa fa-plus"></i>Cadastrar servidor
+          <% end %>
+
+
+        </li>
+        <li class="active">
+         <%= link_to servidores_path do %>
+         <i class="fa fa-plus"></i>Listar todos os servidores
+         <% end %>
+
+
+        </li>
+
+        </ul>
+
+        </li>
+
+        <li class='treeview'>
+        <a href="#">
+          <i class="fa fa-users"></i> <span>Gerenciar administradores</span>
+          </a>
+                <ul class="treeview-menu">
+         <li class="active">
+          <%= link_to new_administrador_path do %>
+          <i class="fa fa-plus"></i>Cadastrar administrador
+          <% end %>
+
+
+        </li>
+        <li class="active">
+         <%= link_to administradores_path do %>
+         <i class="fa fa-plus"></i>Listar todos os administradores
+         <% end %>
+
+
+        </li>
+
+          </ul>
+
+        </li>
+
+        </ul>
+
+        </li>
+        <!--        <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li> -->
+
+      </ul>
+      <!-- /.sidebar-menu -->
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+        <div class="control-sidebar-bg"></div>

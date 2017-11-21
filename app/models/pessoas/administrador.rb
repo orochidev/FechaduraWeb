@@ -1,0 +1,3 @@
+class Administrador < Pessoa
+
+end

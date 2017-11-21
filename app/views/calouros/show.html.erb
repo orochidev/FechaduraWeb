@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<div class="box box-primary">
+  <div class="box-header with-border">
+    <h3 class="box-title">Credenciais cadastradas deste aluno</h3>
+  </div>
+
+  <div class="box-body box-profile">
+
+    <p>
+      <strong>Nome:</strong>
+      <%= @calouro.nome %>
+    </p>
+
+    <p>
+      <strong>Idade:</strong>
+      <%= @calouro.idade %>
+    </p>
+
+  </div>
+
+</div>
+
+
+<%= link_to 'Edit', edit_calouro_path(@calouro) %> |
+<%= link_to 'Back', calouros_path %>

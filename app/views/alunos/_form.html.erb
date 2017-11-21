@@ -1,0 +1,30 @@
+<%= form_for aluno do |f| %>
+  <div class="form-group has-feedback">
+    <%= f.label :nome, "Nome completo do aluno" %>
+
+    <%= f.text_field :nome,
+        class: "form-control",
+        placeholder:"Exemplo: João da silva...",
+        required: true %>
+  </div>
+  <div class="form-group has-feedback">
+    <%= f.label :email, "E-mail do aluno para contato" %>
+
+    <%= f.email_field :email,
+        class: "form-control",
+        placeholder:"Exemplo: joao@utfpr.edu.br...",
+        required: true %>
+  </div>
+  <%= f.fields_for :credenciais, RA.new do |ff| %>
+    <%= f.label :codigo, "Registro Acadêmico" %>
+
+    <%= ff.text_field :codigo,
+    class: "form-control",
+    placeholder: "Informe o RA do aluno " %>
+    <%= ff.hidden_field :type, value: "RA" %>
+    
+  <% end %>
+<div class="box-footer">
+  <%= f.submit (@aluno.persisted? ? "Confirmar edição" : "Confirmar cadastro"), class: "btn btn-primary" %>
+</div>
+<% end %>

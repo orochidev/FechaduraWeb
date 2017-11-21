@@ -1,0 +1,2 @@
+class Calouro < ApplicationRecord
+end

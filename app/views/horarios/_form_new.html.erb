@@ -1,0 +1,340 @@
+<%= form_for [@sala, @horario] do |f| %>
+    <div class='row'>
+      <div class='col-md-6'>
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <h3 class="box-title">Dados do horario</h3>
+          </div>
+          <!-- /.box-header -->
+          <!-- form start -->
+          <div class="box-body">
+            <label for="nome">Tipo de pessoa permitida</label>
+
+            <%= f.collection_select :tipo_permitido, Pessoa.all_subclasses, :to_s, :to_s %>
+
+
+          </div>
+          <!-- /.box-body -->
+        </div>
+
+
+      </div>
+      <div class='col-md-6'>
+
+</div>
+<div class='col-md-12'>
+  <div class="box box-success">
+    <div class="box-header with-border">
+      <h3 class="box-title">Horários
+        <i data-original-title="Defina os horários em que será permitido a entrada" data-toggle="tooltip" style="color:#3c8dbc"
+        class="glyphicon glyphicon-info-sign">
+      </i>
+
+    </h3>
+  </div>
+  <!-- /.box-header -->
+  <!-- form start -->
+  <div class="box-body">
+    <table class="table table-striped">
+      <tbody><tr>
+        <th style="width: 10px">#</th>
+        <th class='text-center'>Horário de inicio</th>
+        <th class='text-center'>Horário de término</th>
+        <th class='text-center'>Copiar</th>
+        <th class='text-center'>Ativar</th>
+
+
+        <!-- /.input group -->
+      </tr>
+      <%= f.fields_for :horario_itens, HorarioItem.new do |ff| %>
+      <tr>
+        <th>Segunda</th>
+        <td class="bootstrap-timepicker">
+          <div class="form-group">
+            <div class="input-group">
+              <%= ff.time_field :horario_inicio, :class =>"form-control timepicker", :placeholder =>"Informe a hora de inicio " %>
+
+              <div class="input-group-addon">
+                <i class="fa fa-clock-o"></i>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td class="bootstrap-timepicker">
+          <div class="form-group">
+            <div class="input-group">
+
+              <%= ff.time_field :horario_fim, :class =>"form-control timepicker", :placeholder =>"Informe a hora de término " %>
+              <div class="input-group-addon">
+                <i class="fa fa-clock-o"></i>
+              </div>
+            </div>
+          </div>
+
+        </td>
+
+        <%= ff.hidden_field :dia, :value => 1 %>
+        <td>
+          <button type="button" class='btn btn-primary btn-copy center-block'>Copiar para baixo</button>
+        </td>
+             <td>
+             <center>
+                  <%= ff.check_box :ativo, :checked => true %>
+             </center>
+
+        </td>
+      </tr>
+      <% end %>
+      <%= f.fields_for :horario_itens, HorarioItem.new do |ff| %>
+
+      <tr>
+        <th>Terça</th>
+        <td class="bootstrap-timepicker">
+          <div class="form-group">
+            <div class="input-group">
+              <%= ff.time_field :horario_inicio, :class =>"form-control timepicker", :placeholder =>"Informe a hora de inicio " %>
+
+              <div class="input-group-addon">
+                <i class="fa fa-clock-o"></i>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td class="bootstrap-timepicker">
+
+          <div class="form-group">
+            <div class="input-group">
+
+              <%= ff.time_field :horario_fim, :class =>"form-control timepicker", :placeholder =>"Informe a hora de término " %>
+              <div class="input-group-addon">
+                <i class="fa fa-clock-o"></i>
+              </div>
+            </div>
+          </div>
+
+        </td>
+        <td>
+
+        </td>
+                    <%= ff.hidden_field :dia, :value => 2 %>
+                    <td>
+             <center>
+                  <%= ff.check_box :ativo, :checked => true %>
+             </center>
+             </td>,
+
+      </tr>
+      <% end %>
+      <%= f.fields_for :horario_itens, HorarioItem.new do |ff| %>
+
+      <tr>
+        <th>Quarta</th>
+        <td class="bootstrap-timepicker">
+          <div class="form-group">
+            <div class="input-group">
+              <%= ff.time_field :horario_inicio, :class =>"form-control timepicker", :placeholder =>"Informe a hora de inicio " %>
+
+              <div class="input-group-addon">
+                <i class="fa fa-clock-o"></i>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td class="bootstrap-timepicker">
+          <div class="form-group">
+            <div class="input-group">
+
+              <%= ff.time_field :horario_fim, :class =>"form-control timepicker", :placeholder =>"Informe a hora de término " %>
+              <div class="input-group-addon">
+                <i class="fa fa-clock-o"></i>
+              </div>
+            </div>
+          </div>
+
+        </td>
+        <td>
+        </td>
+            <%= ff.hidden_field :dia, :value => 3 %>
+                    <td>
+
+             <center>
+                  <%= ff.check_box :ativo, :checked => true %>
+             </center>
+             </td>
+      </tr>
+      <% end %>
+      <%= f.fields_for :horario_itens, HorarioItem.new do |ff| %>
+
+      <tr>
+        <th>Quinta</th>
+        <td class="bootstrap-timepicker">
+          <div class="form-group">
+            <div class="input-group">
+              <%= ff.time_field :horario_inicio, :class =>"form-control timepicker", :placeholder =>"Informe a hora de inicio " %>
+
+              <div class="input-group-addon">
+                <i class="fa fa-clock-o"></i>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td class="bootstrap-timepicker">
+          <div class="form-group">
+            <div class="input-group">
+
+              <%= ff.time_field :horario_fim, :class =>"form-control timepicker", :placeholder =>"Informe a hora de término " %>
+              <div class="input-group-addon">
+                <i class="fa fa-clock-o"></i>
+              </div>
+            </div>
+          </div>
+
+        </td>
+        <td>
+        </td>
+            <%= ff.hidden_field :dia, :value => 4 %>
+            <td>
+
+             <center>
+                  <%= ff.check_box :ativo, :checked => true %>
+             </center>
+             </td>
+      </tr>
+            <% end %>
+      <%= f.fields_for :horario_itens, HorarioItem.new do |ff| %>
+
+
+      <tr>
+        <th>Sexta</th>
+        <td class="bootstrap-timepicker">
+          <div class="form-group">
+            <div class="input-group">
+              <%= ff.time_field :horario_inicio, :class =>"form-control timepicker", :placeholder =>"Informe a hora de inicio " %>
+
+              <div class="input-group-addon">
+                <i class="fa fa-clock-o"></i>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td class="bootstrap-timepicker">
+          <div class="form-group">
+            <div class="input-group">
+
+              <%= ff.time_field :horario_fim, :class =>"form-control timepicker", :placeholder =>"Informe a hora de término " %>
+              <div class="input-group-addon">
+                <i class="fa fa-clock-o"></i>
+              </div>
+            </div>
+          </div>
+
+        </td>
+        <td>
+        </td>
+                          <%= ff.hidden_field :dia, :value => 5 %>
+                          <td>
+
+             <center>
+                  <%= ff.check_box :ativo, :checked => true %>
+             </center>
+             </td>
+      </tr>
+
+                  <% end %>
+      <%= f.fields_for :horario_itens, HorarioItem.new do |ff| %>
+
+      <tr>
+        <th>Sábado</th>
+
+        <td class="bootstrap-timepicker">
+          <div class="form-group">
+            <div class="input-group">
+              <%= ff.time_field :horario_inicio, :class =>"form-control timepicker", :placeholder =>"Informe a hora de inicio " %>
+
+              <div class="input-group-addon">
+                <i class="fa fa-clock-o"></i>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td class="bootstrap-timepicker">
+          <div class="form-group">
+            <div class="input-group">
+
+              <%= ff.time_field :horario_fim, :class =>"form-control timepicker", :placeholder =>"Informe a hora de término " %>
+              <div class="input-group-addon">
+                <i class="fa fa-clock-o"></i>
+              </div>
+            </div>
+          </div>
+
+        </td>
+        <td>
+        </td>
+<td>
+                     <center>
+                  <%= ff.check_box :ativo, :checked => true %>
+             </center>
+                                  </td>
+
+      </tr>
+              <%= ff.hidden_field :dia, :value => 6 %>
+
+                  <% end %>
+      <%= f.fields_for :horario_itens, HorarioItem.new do |ff| %>
+      <tr>
+        <th>Domingo</th>
+        <td class="bootstrap-timepicker">
+          <div class="form-group">
+            <div class="input-group">
+              <%= ff.time_field :horario_inicio, :class =>"form-control timepicker", :placeholder =>"Informe a hora de inicio " %>
+
+              <div class="input-group-addon">
+                <i class="fa fa-clock-o"></i>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td class="bootstrap-timepicker">
+          <div class="form-group">
+            <div class="input-group">
+
+              <%= ff.time_field :horario_fim, :class =>"form-control timepicker", :placeholder =>"Informe a hora de término " %>
+              <div class="input-group-addon">
+                <i class="fa fa-clock-o"></i>
+              </div>
+            </div>
+          </div>
+
+        </td>
+        <%= ff.hidden_field :dia, :value => 0 %>
+                <td></td>
+
+        <td>
+
+             <center>
+                  <%= ff.check_box :ativo, :checked => true %>
+             </center>
+                     </td>
+
+      </tr>
+                  <% end %>
+
+ <!--     <tr>
+        <th>Total de horas</th>
+        <td colspan=2>
+          <input type="text" id='total' name='total' class="form-control"
+          readonly>
+        </td>
+        <td>
+          <button type="button" class='btn btn-primary btn-calcular center-block'>Calcular</button>
+        </td>
+      </tr>  -->
+    </tbody></table>
+  </div>
+</div>
+            <%= f.submit "Salvar" , :class => 'btn btn-primary'  %>
+
+</div>
+
+<% end %>

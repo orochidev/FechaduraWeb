@@ -1,0 +1,2 @@
+class Servidor < Pessoa
+end

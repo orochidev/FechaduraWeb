@@ -1,0 +1,8 @@
+<% content_for :titulo do %>
+  Editar <%= @administrador.to_s %>
+
+  <% end %>
+<%= render 'form', administrador: @administrador %>
+
+<%= link_to 'Show', @administrador %> |
+<%= link_to 'Back', administradores_path %>

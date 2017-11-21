@@ -1,0 +1,26 @@
+  <% if current_user.endereco == nil %>
+<div class="box box-warning box-solid">
+  <div class="box-header with-border">
+    <h3 class="box-title">Atenção!</h3>
+
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+      </button>
+    </div>
+    <!-- /.box-tools -->
+  </div>
+  <!-- /.box-header -->
+  <div class="box-body">
+    <p>Você ainda não cadastrou nenhum endereço de empregador.</p>             
+  </div>
+  <!-- /.box-body -->
+  <div class='box-footer'>
+    <a href="cadastrar_empregado.php">
+      <%= link_to new_endereco_path do %>
+      <button type="button" class="btn btn-primary ">
+        <i class="fa fa-plus"></i>  Clique aqui para cadastrar um novo endereço de empregador.</button>
+        <% end %>
+      </a>
+    </div>
+  </div>
+  <% end %>

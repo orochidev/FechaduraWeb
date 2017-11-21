@@ -1,0 +1,23 @@
+
+  <table class="table table-hover table-linkable">
+            <tbody>
+              <tr>
+              <th>Nome do <%= @pessoas.first.class.downcase %></th>
+              <th>Email</th>
+              <th></th>
+              <th></th>
+
+            </tr>
+            <% @professores.each do |professor| %>
+            <tr data-href="<%=  professor_path(professor) %>">
+            <td><%= professor.nome %></td>
+            <td><%= professor.email %></td>
+            <td><%= link_to 'Editar', edit_aluno_path(aluno), class: "btn btn-primary"%></td>
+            <td><%= link_to 'Excluir' , aluno_path(aluno), method: :delete, class: "btn btn-danger",
+             data:{confirm: "Tem certeza que deseja excluir o professor #{professor.to_s}?"} %></td>
+
+
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
