@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
     root 'sessions#new'
-
+    resources :entradas
     resources :calouros
     resources :servidores do
       resources :rfids
@@ -8,6 +8,8 @@ Rails.application.routes.draw do
    resources :pessoas
    resources :alunos do
      resources :rfids
+     resources :ra
+     
    end
    resources :salas do
      resources :horarios

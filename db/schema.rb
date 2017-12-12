@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171116191816) do
+ActiveRecord::Schema.define(version: 20171205033610) do
 
   create_table "agendamentos", force: :cascade do |t|
     t.time "horario_inicio"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20171116191816) do
     t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "registrado_em"
   end
 
   create_table "horario_itens", force: :cascade do |t|

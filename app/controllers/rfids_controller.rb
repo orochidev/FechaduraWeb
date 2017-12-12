@@ -88,6 +88,9 @@ class RfidsController < ApplicationController
     def set_pessoa
       @pessoa = Pessoa.find(params[:pessoa_id]) if params[:pessoa_id]
       @pessoa = Pessoa.find(params[:aluno_id]) if params[:aluno_id]
+      @pessoa = Pessoa.find(params[:professor_id]) if params[:professor_id]
+      @pessoa = Pessoa.find(params[:administrador_id]) if params[:administrador_id]
+      @pessoa = Pessoa.find(params[:servidor_id]) if params[:servidor_id]
 
     end
     # Never trust parameters from the scary internet, only allow the white list through.

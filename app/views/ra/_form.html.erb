@@ -1,0 +1,17 @@
+<%= form_with(model: ra, local: true) do |form| %>
+  <% if ra.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ra.errors.count, "error") %> prohibited this ra from being saved:</h2>
+
+      <ul>
+      <% ra.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

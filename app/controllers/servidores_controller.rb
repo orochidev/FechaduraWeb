@@ -28,7 +28,7 @@ class ServidoresController < ApplicationController
 
     respond_to do |format|
       if @servidor.save
-        format.html { redirect_to @servidor, notice: 'Servidor was successfully created.' }
+        format.html { redirect_to servidores_path, success: 'Servidor cadastrado com sucesso.' }
         format.json { render :show, status: :created, location: @servidor }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ServidoresController < ApplicationController
   def update
     respond_to do |format|
       if @servidor.update(servidor_params)
-        format.html { redirect_to @servidor, notice: 'Servidor was successfully updated.' }
+        format.html { redirect_to servidores_path, success: 'Servidor atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @servidor }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class ServidoresController < ApplicationController
   def destroy
     @servidor.destroy
     respond_to do |format|
-      format.html { redirect_to servidores_url, notice: 'Servidor was successfully destroyed.' }
+      format.html { redirect_to servidores_path, notice: 'Servidor excluído com sucesso!' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,7 @@ class ServidoresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def servidor_params
-      params.fetch(:servidor, {})
-    end
+      params.require(:servidor).permit(:nome, :email, :telefone,
+        credenciais_attributes: [:id, :codigo, :type])
+      end
 end

@@ -1,6 +1,6 @@
 class SalasController < ApplicationController
   before_action :set_sala, only: [:show, :edit, :update, :destroy]
-  before_action :authorize
+  before_action :authorize, except: [:index]
 
   # GET /salas
   # GET /salas.json

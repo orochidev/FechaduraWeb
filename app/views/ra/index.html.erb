@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ras</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ras.each do |ra| %>
+      <tr>
+        <td><%= link_to 'Show', ra %></td>
+        <td><%= link_to 'Edit', edit_ra_path(ra) %></td>
+        <td><%= link_to 'Destroy', ra, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ra', new_ra_path %>

@@ -1,6 +1,13 @@
-<h1>Editing Servidor</h1>
+<% content_for :titulo do %>
+Editar servidor <%= @servidor.to_s %>
+<% end %>
 
-<%= render 'form', servidor: @servidor %>
+<div class="box box-primary">
+  <div class="box-header with-border">
+    <h3 class="box-title">Editar servidor</h3>
+  </div>
+    <div class="box-body">
+      <%= render 'form', servidor: @servidor %>
+</div>
 
-<%= link_to 'Show', @servidor %> |
-<%= link_to 'Back', servidores_path %>
+</div>

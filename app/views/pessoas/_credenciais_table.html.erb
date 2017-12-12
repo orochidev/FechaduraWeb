@@ -10,9 +10,19 @@
             <tr>
             <td><%= credencial.type %>
             <td><%= credencial.to_s %></td>
-            <td><%= link_to 'Editar', [:edit, pessoa, credencial], class: "btn btn-primary"%></td>
-            <td><%= link_to 'Excluir' , [pessoa, credencial], method: :delete, class: "btn btn-danger",
-             data:{confirm: "Tem certeza que deseja excluir esta credencial?"} %></td>
+            <td>
+              <% if credencial.type != "RA" %>
+              <%= link_to 'Editar', [:edit, pessoa, credencial], class: "btn btn-primary"%>
+              <% end %>
+            </td>
+            <td>
+              <% if credencial.type != "RA" %>
+
+              <%= link_to 'Excluir' , [pessoa, credencial], method: :delete, class: "btn btn-danger",
+             data:{confirm: "Tem certeza que deseja excluir esta credencial?"} %>
+             <% end %>
+
+           </td>
             </tr>
           <% end %>
         </tbody>

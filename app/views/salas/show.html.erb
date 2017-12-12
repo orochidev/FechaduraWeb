@@ -31,8 +31,27 @@
             </ul>
             <div class="tab-content">
               <div class="active tab-pane clearfix" id="entradas">
-                Nenhuma entrada registrada.
-              </div>
+                <table class="table table-hover">
+                          <tbody>
+                            <tr>
+                            <th>Nome da pessoa</th>
+                            <th>Tipo de pessoa</th>
+
+                            <th>Sala</th>
+                            <th>Horário</th>
+                          </tr>
+                          <% @sala.entradas.each do |entrada| %>
+                          <tr>
+                          <td><%= entrada.pessoa.to_s %></td>
+                          <td><%= entrada.pessoa.type %></td>
+
+                          <td><%= entrada.sala.to_s %></td>
+                          <td><%= entrada.created_at %></td>
+                          </tr>
+                          <% end %>
+                        </tbody>
+                      </table>
+                </div>
               <div class="tab-pane clearfix" id="saidas">
                 Nenhuma saída registrada.
               </div>

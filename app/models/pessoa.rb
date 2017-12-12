@@ -10,7 +10,7 @@ class Pessoa < ApplicationRecord
   has_many :credenciais, autosave: true
 
   accepts_nested_attributes_for :credenciais
-
+  has_many :entradas
 
   def self.all_subclasses
     ['Administrador', 'Aluno', 'Professor', 'Servidor']

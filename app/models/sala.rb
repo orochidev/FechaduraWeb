@@ -3,6 +3,7 @@ class Sala < ApplicationRecord
 
     validates_uniqueness_of :codigo, message: "Este nome/identificador já pertence a outra sala!"
     has_many :horarios, :autosave =>true
+    has_many :entradas
 
 
 
